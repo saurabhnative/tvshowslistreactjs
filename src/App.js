@@ -1,3 +1,7 @@
+/**
+ * Entry level component to handle all routes to different sceens
+ * @type {String}
+ */
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 //Antd css included globally in the project

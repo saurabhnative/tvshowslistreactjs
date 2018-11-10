@@ -35,7 +35,6 @@ class HomeScreen extends Component {
           return false;
         }
       });
-      console.log(topShows);
       const showsList = topShows.map((tvShow)=>{
         return this.renderTVShowData(tvShow);
       })
@@ -43,6 +42,11 @@ class HomeScreen extends Component {
     }
   }
 
+  /**
+   * Funtion to render TV show cards in UI
+   * @param  {Object} data [data for each card]
+   * @return {JSX Markup}      [Card elements JSX markup]
+   */
   renderTVShowData(data){
     return(
       <Col className="gutter-row" span={6} key={data.name}>
@@ -61,10 +65,15 @@ class HomeScreen extends Component {
     )
   }
 
+  /**
+   * Function to redirect user to individual show information
+   * @param  {Integer} id [unique id for each show]
+   * @return {null}    [null]
+   */
   handleCardClick(id) {
-    console.log("er", id);
     this.props.history.push(`/showdetails/${id}`);
   }
+
   render() {
     return (
       <div className="App">
