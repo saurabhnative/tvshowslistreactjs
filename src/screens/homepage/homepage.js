@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import './homepage.css';
 import { connect } from 'react-redux';
 import { fetchTvShowsList } from '../../actions/componentActions/tvShowListActions.js';
-import { Col } from 'antd';
+import { Col,Row } from 'antd';
 import { Card } from 'antd';
 
 /**
@@ -35,10 +35,22 @@ class HomeScreen extends Component {
           return false;
         }
       });
-      const showsList = topShows.map((tvShow)=>{
-        return this.renderTVShowData(tvShow);
-      })
-      this.setState({showsList});
+      let rows = [];
+      let cols = [];
+      topShows.map((tvShow,index) => {
+        cols.push(this.renderTVShowData(tvShow));
+        if(cols.length === 4){
+          rows.push(
+            <Row type="flex" justify="center">
+             {cols}
+            </Row>
+          );
+          cols = [];
+        }
+        // rows.push(this.renderTVShowData(tvShow));
+        return null;
+      });
+      this.setState({ showsList: rows});
     }
   }
 
@@ -49,18 +61,20 @@ class HomeScreen extends Component {
    */
   renderTVShowData(data){
     return(
-      <Col className="gutter-row" span={6} key={data.name}>
+      <Col xs={24} sm={12} md={6} lg={6} xl={6} key={data.name}>
+      <center>
       <Card
           hoverable
-          style={{ width: 240 }}
-          cover={<img alt="example" src={data.image.medium}
-          onClick= {() => this.handleCardClick(data.id)}/>}
+          className="tvShowCard"
+          cover={<img alt="example" src={data.image.medium}/>}
+          onClick= {() => this.handleCardClick(data.id)}
         >
           <Meta
             title={data.name}
             description={data.premiered}
           />
         </Card>
+        </center>
       </Col>
     )
   }
