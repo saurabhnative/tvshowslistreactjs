@@ -8,13 +8,13 @@ import { connect } from 'react-redux';
 import { fetchTvShowsList } from '../../actions/componentActions/tvShowListActions.js';
 import { Col,Row } from 'antd';
 import { Card } from 'antd';
-
+import HeaderComponent from '../../components/Header/header';
 /**
  * Layout Components from antd UI library
  * More info: https://ant.design/components/layout/
  */
 import { Layout } from 'antd';
-const { Header, Footer, Content } = Layout;
+const { Footer, Content } = Layout;
 const { Meta } = Card;
 
 class HomeScreen extends Component {
@@ -90,17 +90,13 @@ class HomeScreen extends Component {
 
   render() {
     return (
-      <div className="App">
       <Layout>
-        <Header>
-           <span className="title">TV Shows</span>
-        </Header>
+        <HeaderComponent/>
         <Content className="content">
         {this.state.showsList}
         </Content>
         <Footer>Footer</Footer>
       </Layout>
-      </div>
     );
   }
 }
