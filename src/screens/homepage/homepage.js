@@ -93,7 +93,7 @@ class HomeScreen extends Component {
       <div className="App">
       <Layout>
         <Header>
-           <span className="title">TV Show Details</span>
+           <span className="title">TV Shows</span>
         </Header>
         <Content className="content">
         {this.state.showsList}

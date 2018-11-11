@@ -1,6 +1,8 @@
-
-.title {
-  color: white;
+.ant-layout-header {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tvShowCard {
@@ -10,4 +12,13 @@
   padding: 2%;
   margin: 5%;
   align-self: center;
+}
+
+.title {
+  color: #ffffff;
+  font-family: 'Droid serif', serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
 }
